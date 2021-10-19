@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Input, LoginContainer, ButtonContainer } from './styledComponents';
 
 function Login() {
@@ -23,7 +24,7 @@ function Login() {
         />
         <ButtonContainer>
           <Button type="button">Login</Button>
-          <Button type="button">Create Login</Button>
+          <Link to="create-login"><Button type="button">Create Login</Button></Link>
         </ButtonContainer>
       </LoginContainer>
     </>
