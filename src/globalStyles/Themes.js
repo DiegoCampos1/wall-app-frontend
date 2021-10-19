@@ -3,6 +3,9 @@ export const lightTheme = {
   text: '#363537',
   toggleBorder: '#FFF',
   background: '#363537',
+  buttonText: '#FFF',
+  inputBackgroundColor: '#FFF',
+  inputBorder: '#D8D8D8',
 };
 
 export const darkTheme = {
@@ -10,4 +13,8 @@ export const darkTheme = {
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
   background: '#999',
+  buttonText: '#363537',
+  inputBackgroundColor: '#D8D8D8',
+  inputBorder: '#999',
+
 };
