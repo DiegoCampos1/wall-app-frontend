@@ -15,11 +15,9 @@ const App = () => {
 
   return (
     <ThemeProvider theme={ themeMode }>
-      <>
-        <GlobalStyle />
-        <Toggle theme={ theme } toggleTheme={ themeToggler } />
-        <h1>Teste</h1>
-      </>
+      <GlobalStyle />
+      <Toggle theme={ theme } toggleTheme={ themeToggler } />
+      <h1>Teste</h1>
     </ThemeProvider>
 
   );
