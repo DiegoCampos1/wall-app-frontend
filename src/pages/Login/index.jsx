@@ -14,7 +14,7 @@ function Login() {
         onChange={ (e) => setName(e.target.value) }
       />
       <Input
-        type="Password"
+        type="password"
         placeholder="Password"
         value={ password }
         onChange={ (e) => setPassword(e.target.value) }
