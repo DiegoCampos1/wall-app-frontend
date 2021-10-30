@@ -25,7 +25,7 @@ function Wall() {
         value={ postText }
         onChange={ (e) => setPostText(e.target.value) }
       />
-      <Button type="button">Send Message</Button>
+      <Button type="button">Send</Button>
     </div>
   );
 }
