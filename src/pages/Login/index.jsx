@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import TheWallContext from '../../context/TheWallContext';
 import { Button, Input, LoginContainer, ButtonContainer } from './styledComponents';
 
 function Login() {
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { userLogin } = useContext(TheWallContext);
 
   return (
     <>
@@ -12,9 +15,9 @@ function Login() {
       <LoginContainer>
         <Input
           type="text"
-          placeholder="Name:"
-          value={ name }
-          onChange={ (e) => setName(e.target.value) }
+          placeholder="Email:"
+          value={ email }
+          onChange={ (e) => setEmail(e.target.value) }
         />
         <Input
           type="password"
@@ -23,7 +26,12 @@ function Login() {
           onChange={ (e) => setPassword(e.target.value) }
         />
         <ButtonContainer>
-          <Button type="button">Login</Button>
+          <Button
+            type="button"
+            onClick={ () => userLogin(email, password) }
+          >
+            Login
+          </Button>
           <Link to="create-login"><Button type="button">Create Login</Button></Link>
         </ButtonContainer>
       </LoginContainer>

@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import useDarkMode from './hooks/useDarkMode';
 import GlobalStyle from './globalStyles/Global';
@@ -27,14 +23,11 @@ const App = () => {
       <GlobalStyle />
       <MainContainer>
         <Toggle theme={ theme } toggleTheme={ themeToggler } />
-        <Router>
-          <Switch>
-            <Route exact path="/" component={ Login } />
-            <Route exact path="/create-login" component={ CreateLogin } />
-            <Route exact path="/wall" component={ Wall } />
-
-          </Switch>
-        </Router>
+        <Switch>
+          <Route exact path="/" component={ Login } />
+          <Route exact path="/create-login" component={ CreateLogin } />
+          <Route exact path="/wall" component={ Wall } />
+        </Switch>
       </MainContainer>
     </ThemeProvider>
 

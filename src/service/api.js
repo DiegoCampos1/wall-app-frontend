@@ -19,3 +19,11 @@ export const getAllPosts = async () => {
     console.error(error);
   }
 };
+
+export const getUserToken = async (email, password) => {
+  try {
+    return instance.post('auth/login', { email, password });
+  } catch (error) {
+    console.error(error);
+  }
+};
