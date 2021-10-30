@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TheWallContext from './TheWallContext';
-import { createUserApi, getAllPosts, getUserToken } from '../service/api';
+import { createPostApi, createUserApi, getAllPosts, getUserToken } from '../service/api';
 
 function TheWallProvider({ children }) {
   const [posts, setPosts] = useState([]);
@@ -13,6 +13,11 @@ function TheWallProvider({ children }) {
   const fetchPosts = async () => {
     const allPosts = await getAllPosts();
     setPosts(allPosts.data);
+  };
+
+  const createPost = async (text, author, authorId) => {
+    await createPostApi(text, author, authorId, token);
+    await fetchPosts();
   };
 
   const userLogin = async (email, password) => {
@@ -65,6 +70,7 @@ function TheWallProvider({ children }) {
     createUser,
     createdUser,
     setCreatedUser,
+    createPost,
   };
 
   return (

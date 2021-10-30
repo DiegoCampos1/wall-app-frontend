@@ -4,7 +4,7 @@ import { Button, Input } from '../Login/styledComponents';
 
 function Wall() {
   const [postText, setPostText] = useState('');
-  const { posts, user } = useContext(TheWallContext);
+  const { posts, user, createPost } = useContext(TheWallContext);
   return (
     <div>
       <h4>
@@ -21,11 +21,16 @@ function Wall() {
       ))}
       <Input
         type="text"
-        placeholder="Name:"
+        placeholder="Text:"
         value={ postText }
         onChange={ (e) => setPostText(e.target.value) }
       />
-      <Button type="button">Send</Button>
+      <Button
+        type="button"
+        onClick={ () => createPost(postText, user.name, user.id) }
+      >
+        Send
+      </Button>
     </div>
   );
 }
