@@ -38,3 +38,12 @@ export const createUserApi = async (name, email, password) => {
     return error;
   }
 };
+
+export const createPostApi = async (text, author, authorId) => {
+  try {
+    return instance.post('users', { text, author, authorId });
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};
