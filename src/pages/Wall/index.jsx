@@ -1,10 +1,34 @@
 import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
 import { Button, Input } from '../Login/styledComponents';
 
 function Wall() {
   const [postText, setPostText] = useState('');
   const { posts, user, createPost } = useContext(TheWallContext);
+
+  const renderInputAndButtonPost = () => (
+    <>
+      <Input
+        type="text"
+        placeholder="Text:"
+        value={ postText }
+        onChange={ (e) => setPostText(e.target.value) }
+      />
+      <Button
+        type="button"
+        onClick={ () => createPost(postText, user.name, user.id) }
+      >
+        Send
+      </Button>
+    </>
+  );
+
+  const renderLinkToRedirectToLogin = () => (
+    <Link to="/">To send messages, please do Loggin</Link>
+  );
+
+  console.log(user);
   return (
     <div>
       <h4>
@@ -19,18 +43,7 @@ function Wall() {
           <p>{`${post.text}`}</p>
         </div>
       ))}
-      <Input
-        type="text"
-        placeholder="Text:"
-        value={ postText }
-        onChange={ (e) => setPostText(e.target.value) }
-      />
-      <Button
-        type="button"
-        onClick={ () => createPost(postText, user.name, user.id) }
-      >
-        Send
-      </Button>
+      {user ? renderInputAndButtonPost() : renderLinkToRedirectToLogin()}
     </div>
   );
 }
