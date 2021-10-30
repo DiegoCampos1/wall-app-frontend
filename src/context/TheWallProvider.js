@@ -11,18 +11,15 @@ function TheWallProvider({ children }) {
 
   const fetchPosts = async () => {
     const allPosts = await getAllPosts();
-    console.log(allPosts);
     setPosts(allPosts.data);
   };
 
   const userLogin = async (email, password) => {
     try {
       const userLogged = await getUserToken(email, password);
-      console.log(userLogged);
       if (userLogged && userLogged.data.access_token) {
         const userToken = userLogged.data.access_token;
         const userData = userLogged.data.user;
-        console.log(userData);
         localStorage.setItem('token', userToken);
         localStorage.setItem('user', JSON.stringify(userData));
         setLogginError(false);
@@ -30,18 +27,18 @@ function TheWallProvider({ children }) {
         setUser(userData);
       }
     } catch (error) {
-      console.log('entrei no else');
       setLogginError(true);
       setUser(null);
     }
   };
+
   const recoveryUserAndTokeFromLocalStorage = () => {
     const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
     if (userFromLocalStorage) setUser(userFromLocalStorage);
     const tokenFromLocalStorage = localStorage.getItem('token');
     if (tokenFromLocalStorage) setToken(tokenFromLocalStorage);
-    console.log(userFromLocalStorage, tokenFromLocalStorage);
   };
+
   useEffect(() => {
     fetchPosts();
     recoveryUserAndTokeFromLocalStorage();

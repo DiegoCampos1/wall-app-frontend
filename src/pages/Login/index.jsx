@@ -3,12 +3,19 @@ import { Link, Redirect } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
 import { Button, Input, LoginContainer, ButtonContainer } from './styledComponents';
 
-function Login({ history }) {
+function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const { userLogin, user, logginError } = useContext(TheWallContext);
-  console.log('user e logginError', user, logginError);
+
+  const messageError = () => {
+    (
+      <div>
+        this user dont exist please check your email and password, or create a user
+      </div>
+    );
+  };
 
   if (user) return <Redirect to="/wall" />;
   return (
@@ -27,7 +34,7 @@ function Login({ history }) {
           value={ password }
           onChange={ (e) => setPassword(e.target.value) }
         />
-          { logginError && <div>this user dont exist please shure your email and password, or create a new user</div>}
+        { logginError && messageError()}
         <ButtonContainer>
           <Button
             type="button"

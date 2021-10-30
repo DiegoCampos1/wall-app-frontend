@@ -17,6 +17,7 @@ export const getAllPosts = async () => {
     return instance.get('posts');
   } catch (error) {
     console.error(error);
+    return error;
   }
 };
 
