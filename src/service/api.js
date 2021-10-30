@@ -25,5 +25,6 @@ export const getUserToken = async (email, password) => {
     return instance.post('auth/login', { email, password });
   } catch (error) {
     console.error(error);
+    return error;
   }
 };

@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 import TheWallContext from './TheWallContext';
 import { getAllPosts, getUserToken } from '../service/api';
 
-const userMock = {
-  id: '616f368a02799dd0c95b6900',
-  name: 'Coragem the Cat 3',
-  email: 'teste3@test.com',
-};
-
 function TheWallProvider({ children }) {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
@@ -22,22 +16,35 @@ function TheWallProvider({ children }) {
   };
 
   const userLogin = async (email, password) => {
-    const userLogged = await getUserToken(email, password);
-    console.log(userLogged);
-    if (userLogged && userLogged.data.access_token) {
-      const userToken = userLogged.data.access_token;
-      const userData = userLogged.data.user;
-      localStorage.setItem('token', userToken);
-      setToken(userToken);
-      setUser(userData);
-    } else {
+    try {
+      const userLogged = await getUserToken(email, password);
+      console.log(userLogged);
+      if (userLogged && userLogged.data.access_token) {
+        const userToken = userLogged.data.access_token;
+        const userData = userLogged.data.user;
+        console.log(userData);
+        localStorage.setItem('token', userToken);
+        localStorage.setItem('user', JSON.stringify(userData));
+        setLogginError(false);
+        setToken(userToken);
+        setUser(userData);
+      }
+    } catch (error) {
+      console.log('entrei no else');
       setLogginError(true);
+      setUser(null);
     }
   };
-
+  const recoveryUserAndTokeFromLocalStorage = () => {
+    const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
+    if (userFromLocalStorage) setUser(userFromLocalStorage);
+    const tokenFromLocalStorage = localStorage.getItem('token');
+    if (tokenFromLocalStorage) setToken(tokenFromLocalStorage);
+    console.log(userFromLocalStorage, tokenFromLocalStorage);
+  };
   useEffect(() => {
     fetchPosts();
-    setUser(userMock);
+    recoveryUserAndTokeFromLocalStorage();
   }, []);
 
   const theWallContextValues = {

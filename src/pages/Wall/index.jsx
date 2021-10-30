@@ -10,7 +10,7 @@ function Wall() {
       <h4>
         Hello,
         {' '}
-        { user.name || 'guest'}
+        {user && user.name}
       </h4>
       {posts && posts.map((post) => (
         // eslint-disable-next-line no-underscore-dangle
