@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import TheWallContext from './TheWallContext';
-import { getAllPosts, getUserToken } from '../service/api';
+import { createUserApi, getAllPosts, getUserToken } from '../service/api';
 
 function TheWallProvider({ children }) {
   const [posts, setPosts] = useState([]);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState('');
   const [logginError, setLogginError] = useState(false);
+  const [createdUser, setCreatedUser] = useState('');
 
   const fetchPosts = async () => {
     const allPosts = await getAllPosts();
@@ -32,6 +33,17 @@ function TheWallProvider({ children }) {
     }
   };
 
+  const createUser = async (name, email, password) => {
+    try {
+      const userCreated = await createUserApi(name, email, password);
+      if (userCreated) {
+        setCreatedUser(true);
+      }
+    } catch (error) {
+      setCreatedUser(false);
+    }
+  };
+
   const recoveryUserAndTokeFromLocalStorage = () => {
     const userFromLocalStorage = JSON.parse(localStorage.getItem('user'));
     if (userFromLocalStorage) setUser(userFromLocalStorage);
@@ -50,6 +62,9 @@ function TheWallProvider({ children }) {
     userLogin,
     token,
     logginError,
+    createUser,
+    createdUser,
+    setCreatedUser,
   };
 
   return (

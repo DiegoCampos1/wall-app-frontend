@@ -29,3 +29,12 @@ export const getUserToken = async (email, password) => {
     return error;
   }
 };
+
+export const createUserApi = async (name, email, password) => {
+  try {
+    return instance.post('users', { name, email, password });
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
+};

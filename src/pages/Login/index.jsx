@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
 import { Button, Input, LoginContainer, ButtonContainer } from './styledComponents';
@@ -7,7 +7,15 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const { userLogin, user, logginError } = useContext(TheWallContext);
+  const { userLogin,
+    user,
+    logginError,
+    createdUser,
+    setCreatedUser } = useContext(TheWallContext);
+
+  useEffect(() => {
+    setCreatedUser(false);
+  }, [setCreatedUser]);
 
   const messageError = () => {
     (
@@ -17,11 +25,20 @@ function Login() {
     );
   };
 
+  const createdUserMessage = () => {
+    (
+      <div>
+        User create with success, please login.
+      </div>
+    );
+  };
+
   if (user) return <Redirect to="/wall" />;
   return (
     <>
       <h1>Welcome to THE WALL app!</h1>
       <LoginContainer>
+        { createdUser === 'success' && createdUserMessage()}
         <Input
           type="text"
           placeholder="Email:"
