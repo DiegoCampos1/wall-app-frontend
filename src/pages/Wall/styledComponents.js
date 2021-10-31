@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const WallContainer = styled.div`
   height: 88vh;
   width: 80vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const PostsContainer = styled.div`
@@ -22,6 +24,7 @@ export const InputSendContainer = styled.div`
   margin-top: 10px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
 `;
 
@@ -31,13 +34,15 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.background};
   border-radius: 30px;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 700;
   overflow: hidden;
   padding: 0.5rem;
-  position: relative;
   height: 2rem;
-  width: 6rem;
+  width: ${({ width }) => (width || '10rem')};
+  margin-top: ${({ marginTop }) => (marginTop || '10px')};
+  margin-left: ${({ marginLeft }) => (marginLeft || '0')};
+
   outline: none;
 `;
 
@@ -46,4 +51,9 @@ export const Input = styled.input`
   background-color: ${({ theme }) => theme.inputBackgroundColor};
   width: 70%;
   height: 2em;
+  padding-left: 1em;
+  font-size: 1em;
+  ::placeholder {
+       font-size: 1em;
+   }
 `;

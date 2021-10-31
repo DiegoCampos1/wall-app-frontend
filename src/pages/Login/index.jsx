@@ -56,15 +56,15 @@ function Login() {
       />
       { logginError && messageError()}
       <ButtonContainer>
-        <Link to="create-login">
-          <SecondButton type="button">Create Login</SecondButton>
-        </Link>
         <Button
           type="button"
           onClick={ () => userLogin(email, password) }
         >
           Login
         </Button>
+        <Link to="create-login">
+          <SecondButton type="button">Create Login</SecondButton>
+        </Link>
       </ButtonContainer>
     </LoginContainer>
   );

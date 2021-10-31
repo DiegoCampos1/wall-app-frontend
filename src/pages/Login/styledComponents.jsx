@@ -41,6 +41,11 @@ export const Input = styled.input`
   background-color: ${({ theme }) => theme.inputBackgroundColor};
   width: 50%;
   height: 2em;
+  font-size: 1em;
+  padding-left: 0.5rem;
+  ::placeholder {
+       font-size: 1em;
+   }
 `;
 
 export const LoginContainer = styled.div`

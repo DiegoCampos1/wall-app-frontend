@@ -2,28 +2,28 @@ export const lightTheme = {
   body: '#FFF',
   text: '#363537',
 
-  toggleBorder: '#FFF',
-  invertToggleBorder: '#6B8096',
+  toggleBorder: '#999',
+  invertToggleBorder: '#999',
 
-  background: '#363537',
-  invertBackground: '#999',
+  background: '#000',
+  invertBackground: '#FFF',
 
   buttonText: '#FFF',
   invertButtonText: '#363537',
 
   inputBackgroundColor: '#FFF',
-  inputBorder: '#D8D8D8',
+  inputBorder: '#000',
 };
 
 export const darkTheme = {
-  body: '#363537',
+  body: '#000',
   text: '#FAFAFA',
-  toggleBorder: '#6B8096',
-  invertToggleBorder: '#FFF',
-  background: '#999',
-  invertBackground: '#363537',
+  toggleBorder: '#999',
+  invertToggleBorder: '#999',
+  background: '#FFF',
+  invertBackground: '#000',
   buttonText: '#363537',
   invertButtonText: '#FFF',
-  inputBackgroundColor: '#D8D8D8',
-  inputBorder: '#999',
+  inputBackgroundColor: '#FFF',
+  inputBorder: '#FFF',
 };

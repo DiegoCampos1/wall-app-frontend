@@ -34,6 +34,8 @@ function Wall() {
       />
       <Button
         type="button"
+        width="7rem"
+        marginTop="0"
         onClick={ () => {
           if (postText) createPost(postText, user.name, user.id);
           setPostText('');
@@ -45,17 +47,13 @@ function Wall() {
   );
 
   const renderLinkToRedirectToLogin = () => (
-    <Link to="/"><Button>Loggin to send messages</Button></Link>
+    <Link to="/create-login"><Button type="button" marginLeft="35%" >Create Login</Button></Link>
   );
 
   console.log(user);
   return (
     <WallContainer>
-      <h2>
-        Hello,
-        {' '}
-        {user ? user.name : 'Visitor'}
-      </h2>
+      <h2>{`Hello, ${user ? user.name : 'Visitor'} !`}</h2>
       <PostsContainer>
         {posts && posts.map((post) => (
           <PostContainer
