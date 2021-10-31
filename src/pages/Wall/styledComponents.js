@@ -17,3 +17,10 @@ export const PostContainer = styled.div`
   padding: 0 10px;
   text-align: ${({ author }) => (author === 'owner' ? 'right' : 'left')};
 `;
+
+export const InputSendContainer = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+`;
