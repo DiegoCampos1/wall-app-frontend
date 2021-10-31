@@ -1,7 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
-import { Button, Input, LoginContainer, ButtonContainer } from './styledComponents';
+import { Button,
+  Input,
+  LoginContainer,
+  ButtonContainer,
+  SecondButton } from './styledComponents';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -52,13 +56,15 @@ function Login() {
       />
       { logginError && messageError()}
       <ButtonContainer>
+        <Link to="create-login">
+          <SecondButton type="button">Create Login</SecondButton>
+        </Link>
         <Button
           type="button"
           onClick={ () => userLogin(email, password) }
         >
           Login
         </Button>
-        <Link to="create-login"><Button type="button">Create Login</Button></Link>
       </ButtonContainer>
     </LoginContainer>
   );

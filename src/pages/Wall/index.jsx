@@ -1,9 +1,11 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
-import { Button, Input } from '../Login/styledComponents';
+
 import {
   PostsContainer,
+  Input,
+  Button,
   WallContainer,
   PostContainer,
   InputSendContainer } from './styledComponents';
@@ -43,7 +45,7 @@ function Wall() {
   );
 
   const renderLinkToRedirectToLogin = () => (
-    <Link to="/">To send messages, please do Loggin</Link>
+    <Link to="/"><Button>Loggin to send messages</Button></Link>
   );
 
   console.log(user);

@@ -24,3 +24,26 @@ export const InputSendContainer = styled.div`
   justify-content: space-between;
   gap: 10px;
 `;
+
+export const Button = styled.button`
+  border: 2px solid ${({ theme }) => theme.toggleBorder};
+  color: ${({ theme }) => theme.buttonText};
+  background-color: ${({ theme }) => theme.background};
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+  overflow: hidden;
+  padding: 0.5rem;
+  position: relative;
+  height: 2rem;
+  width: 6rem;
+  outline: none;
+`;
+
+export const Input = styled.input`
+  border: 2px solid ${({ theme }) => theme.inputBorder};
+  background-color: ${({ theme }) => theme.inputBackgroundColor};
+  width: 70%;
+  height: 2em;
+`;

@@ -10,7 +10,7 @@ export const Button = styled.button`
   overflow: hidden;
   padding: 0.5rem;
   position: relative;
-  width: 6rem;
+  min-width: 6rem;
   height: 3rem;
   outline: none;
 `;
