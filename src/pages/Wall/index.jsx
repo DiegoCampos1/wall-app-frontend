@@ -2,7 +2,11 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
 import { Button, Input } from '../Login/styledComponents';
-import { PostsContainer, WallContainer, PostContainer, InputSendContainer } from './styledComponents';
+import {
+  PostsContainer,
+  WallContainer,
+  PostContainer,
+  InputSendContainer } from './styledComponents';
 
 function Wall() {
   const [postText, setPostText] = useState('');
