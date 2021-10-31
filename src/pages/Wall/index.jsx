@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
 import { Button, Input } from '../Login/styledComponents';
@@ -7,6 +7,16 @@ import { PostsContainer, WallContainer, PostContainer } from './styledComponents
 function Wall() {
   const [postText, setPostText] = useState('');
   const { posts, user, createPost } = useContext(TheWallContext);
+
+  const messagesEndRef = useRef(null);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [posts]);
 
   const renderInputAndButtonPost = () => (
     <>
@@ -52,6 +62,7 @@ function Wall() {
             </p>
           </PostContainer>
         ))}
+        <div ref={ messagesEndRef } />
       </PostsContainer>
       {user ? renderInputAndButtonPost() : renderLinkToRedirectToLogin()}
     </WallContainer>
