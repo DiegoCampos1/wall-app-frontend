@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
 import { Button, Input } from '../Login/styledComponents';
-import { PostsContainer, WallContainer, PostContainer } from './styledComponents';
+import { PostsContainer, WallContainer, PostContainer, InputSendContainer } from './styledComponents';
 
 function Wall() {
   const [postText, setPostText] = useState('');
@@ -19,7 +19,7 @@ function Wall() {
   }, [posts]);
 
   const renderInputAndButtonPost = () => (
-    <>
+    <InputSendContainer>
       <Input
         type="text"
         placeholder="Text:"
@@ -28,11 +28,14 @@ function Wall() {
       />
       <Button
         type="button"
-        onClick={ () => { createPost(postText, user.name, user.id); setPostText(''); } }
+        onClick={ () => {
+          if (postText) createPost(postText, user.name, user.id);
+          setPostText('');
+        } }
       >
         Send
       </Button>
-    </>
+    </InputSendContainer>
   );
 
   const renderLinkToRedirectToLogin = () => (
@@ -42,11 +45,11 @@ function Wall() {
   console.log(user);
   return (
     <WallContainer>
-      <h4>
+      <h2>
         Hello,
         {' '}
         {user ? user.name : 'Visitor'}
-      </h4>
+      </h2>
       <PostsContainer>
         {posts && posts.map((post) => (
           <PostContainer
