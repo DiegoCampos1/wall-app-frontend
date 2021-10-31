@@ -7,7 +7,7 @@ export const WallContainer = styled.div`
 
 export const PostsContainer = styled.div`
   height: 60vh;
-  overflow: scroll;
+  overflow: auto;
 `;
 
 export const PostContainer = styled.div`
