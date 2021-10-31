@@ -57,7 +57,7 @@ function Wall() {
       <PostsContainer>
         {posts && posts.map((post) => (
           <PostContainer
-            author={ user.id === post.authorId ? 'owner' : 'otherUser' }
+            author={ user?.id === post.authorId ? 'owner' : 'otherUser' }
             // eslint-disable-next-line no-underscore-dangle
             key={ post._id }
           >
