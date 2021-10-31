@@ -9,7 +9,7 @@ import {
   LoginContainer,
   ButtonContainer } from '../Login/styledComponents';
 
-const TWO_SECOND = 2000;
+const TWO_SECOND = 4000;
 
 function CreateLogin({ history }) {
   const [name, setName] = useState('');

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import TheWallContext from '../../context/TheWallContext';
 import { Button, Input } from '../Login/styledComponents';
+import { PostsContainer, WallContainer, PostContainer } from './styledComponents';
 
 function Wall() {
   const [postText, setPostText] = useState('');
@@ -17,7 +18,7 @@ function Wall() {
       />
       <Button
         type="button"
-        onClick={ () => createPost(postText, user.name, user.id) }
+        onClick={ () => { createPost(postText, user.name, user.id); setPostText(''); } }
       >
         Send
       </Button>
@@ -30,21 +31,30 @@ function Wall() {
 
   console.log(user);
   return (
-    <div>
+    <WallContainer>
       <h4>
         Hello,
         {' '}
-        {user && user.name}
+        {user ? user.name : 'Visitor'}
       </h4>
-      {posts && posts.map((post) => (
-        // eslint-disable-next-line no-underscore-dangle
-        <div key={ post._id }>
-          <p>{`${post.author}:`}</p>
-          <p>{`${post.text}`}</p>
-        </div>
-      ))}
+      <PostsContainer>
+        {posts && posts.map((post) => (
+          <PostContainer
+            author={ user.id === post.authorId ? 'owner' : 'otherUser' }
+            // eslint-disable-next-line no-underscore-dangle
+            key={ post._id }
+          >
+            <p>
+              {`${post.author}: `}
+              <em>
+                {post.text}
+              </em>
+            </p>
+          </PostContainer>
+        ))}
+      </PostsContainer>
       {user ? renderInputAndButtonPost() : renderLinkToRedirectToLogin()}
-    </div>
+    </WallContainer>
   );
 }
 
