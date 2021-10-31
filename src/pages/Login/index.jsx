@@ -35,34 +35,32 @@ function Login() {
 
   if (user) return <Redirect to="/wall" />;
   return (
-    <>
+    <LoginContainer>
       <h1>Welcome to THE WALL app!</h1>
-      <LoginContainer>
-        { createdUser === 'success' && createdUserMessage()}
-        <Input
-          type="text"
-          placeholder="Email:"
-          value={ email }
-          onChange={ (e) => setEmail(e.target.value) }
-        />
-        <Input
-          type="password"
-          placeholder="Password"
-          value={ password }
-          onChange={ (e) => setPassword(e.target.value) }
-        />
-        { logginError && messageError()}
-        <ButtonContainer>
-          <Button
-            type="button"
-            onClick={ () => userLogin(email, password) }
-          >
-            Login
-          </Button>
-          <Link to="create-login"><Button type="button">Create Login</Button></Link>
-        </ButtonContainer>
-      </LoginContainer>
-    </>
+      { createdUser === 'success' && createdUserMessage()}
+      <Input
+        type="text"
+        placeholder="Email"
+        value={ email }
+        onChange={ (e) => setEmail(e.target.value) }
+      />
+      <Input
+        type="password"
+        placeholder="Password"
+        value={ password }
+        onChange={ (e) => setPassword(e.target.value) }
+      />
+      { logginError && messageError()}
+      <ButtonContainer>
+        <Button
+          type="button"
+          onClick={ () => userLogin(email, password) }
+        >
+          Login
+        </Button>
+        <Link to="create-login"><Button type="button">Create Login</Button></Link>
+      </ButtonContainer>
+    </LoginContainer>
   );
 }
 

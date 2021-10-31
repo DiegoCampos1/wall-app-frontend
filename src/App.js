@@ -28,6 +28,7 @@ const App = () => {
           <Route exact path="/create-login" component={ CreateLogin } />
           <Route exact path="/wall" component={ Wall } />
         </Switch>
+        <div />
       </MainContainer>
     </ThemeProvider>
 

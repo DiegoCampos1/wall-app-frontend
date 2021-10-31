@@ -21,7 +21,8 @@ export const Button = styled.button`
 export const Input = styled.input`
   border: 2px solid ${({ theme }) => theme.inputBorder};
   background-color: ${({ theme }) => theme.inputBackgroundColor};
-  width: 80%;
+  width: 50%;
+  height: 2em;
 `;
 
 export const LoginContainer = styled.div`

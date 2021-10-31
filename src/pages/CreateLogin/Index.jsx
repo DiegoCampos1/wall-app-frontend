@@ -29,38 +29,36 @@ function CreateLogin({ history }) {
   const messageCreateUserInfo = () => <div>Create user, you will redirect</div>;
 
   return (
-    <>
+    <LoginContainer>
       <h3>Please insert yours information:</h3>
       {createMessage && messageCreateUserInfo()}
-      <LoginContainer>
-        <Input
-          type="text"
-          placeholder="Name:"
-          value={ name }
-          onChange={ (e) => setName(e.target.value) }
-        />
-        <Input
-          type="email"
-          placeholder="Email:"
-          value={ email }
-          onChange={ (e) => setEmail(e.target.value) }
-        />
-        <Input
-          type="password"
-          placeholder="Password"
-          value={ password }
-          onChange={ (e) => setPassword(e.target.value) }
-        />
-        <ButtonContainer>
-          <Button
-            type="button"
-            onClick={ () => createUser(name, email, password) }
-          >
-            Create Login
-          </Button>
-        </ButtonContainer>
-      </LoginContainer>
-    </>
+      <Input
+        type="text"
+        placeholder="Name"
+        value={ name }
+        onChange={ (e) => setName(e.target.value) }
+      />
+      <Input
+        type="email"
+        placeholder="Email"
+        value={ email }
+        onChange={ (e) => setEmail(e.target.value) }
+      />
+      <Input
+        type="password"
+        placeholder="Password"
+        value={ password }
+        onChange={ (e) => setPassword(e.target.value) }
+      />
+      <ButtonContainer>
+        <Button
+          type="button"
+          onClick={ () => createUser(name, email, password) }
+        >
+          Create Login
+        </Button>
+      </ButtonContainer>
+    </LoginContainer>
   );
 }
 
