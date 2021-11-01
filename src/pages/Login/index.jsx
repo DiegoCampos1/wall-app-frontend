@@ -65,6 +65,9 @@ function Login() {
         <Link to="create-login">
           <SecondButton type="button">Create Login</SecondButton>
         </Link>
+        <Link to="wall">
+          <SecondButton type="button">Visitor</SecondButton>
+        </Link>
       </ButtonContainer>
     </LoginContainer>
   );

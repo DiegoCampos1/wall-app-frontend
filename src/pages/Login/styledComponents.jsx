@@ -6,14 +6,14 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.background};
   border-radius: 30px;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 700;
   justify-content: space-between;
   margin: 0 auto;
   overflow: hidden;
   padding: 0.5rem;
   position: relative;
-  width: 6rem;
+  width: 7rem;
   height: 2rem;
   outline: none;
 `;
@@ -24,14 +24,14 @@ export const SecondButton = styled.button`
   background-color: ${({ theme }) => theme.invertBackground};
   border-radius: 30px;
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   font-weight: 700;
   justify-content: space-between;
   margin: 0 auto;
   overflow: hidden;
   padding: 0.5rem;
   position: relative;
-  width: 6rem;
+  width: 7rem;
   height: 2rem;
   outline: none;
 `;
@@ -59,5 +59,5 @@ export const LoginContainer = styled.div`
 
 export const ButtonContainer = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 14px;
 `;
