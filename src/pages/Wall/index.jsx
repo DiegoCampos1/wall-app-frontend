@@ -8,7 +8,8 @@ import {
   Button,
   WallContainer,
   PostContainer,
-  InputSendContainer } from './styledComponents';
+  InputSendContainer,
+  Paragraph } from './styledComponents';
 
 function Wall() {
   const [postText, setPostText] = useState('');
@@ -47,7 +48,9 @@ function Wall() {
   );
 
   const renderLinkToRedirectToLogin = () => (
-    <Link to="/create-login"><Button type="button" marginLeft="35%" >Create Login</Button></Link>
+    <Link to="/create-login">
+      <Button type="button" marginLeft="35%">Create Login</Button>
+    </Link>
   );
 
   console.log(user);
@@ -61,12 +64,8 @@ function Wall() {
             // eslint-disable-next-line no-underscore-dangle
             key={ post._id }
           >
-            <p>
-              {`${post.author}: `}
-              <em>
-                {post.text}
-              </em>
-            </p>
+            <Paragraph><strong>{`${post.author}`}</strong></Paragraph>
+            <Paragraph paddingLeft="0.6em">{post.text}</Paragraph>
           </PostContainer>
         ))}
         <div ref={ messagesEndRef } />

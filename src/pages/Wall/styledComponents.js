@@ -10,6 +10,20 @@ export const WallContainer = styled.div`
 export const PostsContainer = styled.div`
   height: 60vh;
   overflow: auto;
+  ::-webkit-scrollbar {
+  width: 20px;
+  }
+  ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px ${({ theme }) => theme.inputBorder}; 
+  border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+  background: ${({ theme }) => theme.inputBorder}; 
+  border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+  background: ${({ theme }) => theme.inputBorder}; 
+  }
 `;
 
 export const PostContainer = styled.div`
@@ -56,4 +70,9 @@ export const Input = styled.input`
   ::placeholder {
        font-size: 1em;
    }
+`;
+
+export const Paragraph = styled.p`
+  padding-left: ${({ paddingLeft }) => (paddingLeft || '0')};
+  margin: 0.4em;
 `;
