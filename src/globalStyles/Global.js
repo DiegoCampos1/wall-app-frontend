@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
   p {
     font-size: 1.2em;
   }
+  h2 {
+    font-size: 2.4em;
+    margin-left: -0.5em;
+  }
   `;
 
 export default GlobalStyle;

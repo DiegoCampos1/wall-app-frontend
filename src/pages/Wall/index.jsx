@@ -64,8 +64,8 @@ function Wall() {
             // eslint-disable-next-line no-underscore-dangle
             key={ post._id }
           >
-            <Paragraph><strong>{`${post.author}`}</strong></Paragraph>
-            <Paragraph paddingLeft="0.6em">{post.text}</Paragraph>
+            <Paragraph><strong>{`${post.author}:`}</strong></Paragraph>
+            <Paragraph padding="0.6em">{post.text}</Paragraph>
           </PostContainer>
         ))}
         <div ref={ messagesEndRef } />

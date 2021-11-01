@@ -68,11 +68,11 @@ export const Input = styled.input`
   padding-left: 1em;
   font-size: 1em;
   ::placeholder {
-       font-size: 1em;
-   }
+    font-size: 1em;
+  }
 `;
 
 export const Paragraph = styled.p`
-  padding-left: ${({ paddingLeft }) => (paddingLeft || '0')};
+  padding: 0 ${({ padding }) => (padding || '0')};
   margin: 0.4em;
 `;
