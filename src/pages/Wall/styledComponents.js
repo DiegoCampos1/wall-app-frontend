@@ -48,7 +48,7 @@ export const Button = styled.button`
   background-color: ${({ theme }) => theme.background};
   border-radius: 30px;
   cursor: pointer;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
   overflow: hidden;
   padding: 0.5rem;
