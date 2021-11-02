@@ -53,7 +53,6 @@ function Wall() {
     </Link>
   );
 
-  console.log(user);
   return (
     <WallContainer>
       <h2>{`Hello, ${user ? user.name : 'Visitor'} !`}</h2>
