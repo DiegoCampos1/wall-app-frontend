@@ -30,11 +30,13 @@ function Wall() {
       <Input
         type="text"
         placeholder="Text:"
+        data-testid="input-text-post"
         value={ postText }
         onChange={ (e) => setPostText(e.target.value) }
       />
       <Button
         type="button"
+        data-testid="button-send-post"
         width="7rem"
         marginTop="0"
         onClick={ () => {
@@ -49,7 +51,14 @@ function Wall() {
 
   const renderLinkToRedirectToLogin = () => (
     <Link to="/create-login">
-      <Button type="button" marginLeft="35%">Create Login</Button>
+      <Button
+        type="button"
+        marginLeft="35%"
+        data-testid="create-login"
+      >
+        Create Login
+
+      </Button>
     </Link>
   );
 

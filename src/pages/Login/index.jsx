@@ -45,12 +45,14 @@ function Login() {
       <Input
         type="text"
         placeholder="Email"
+        data-testid="input-email"
         value={ email }
         onChange={ (e) => setEmail(e.target.value) }
       />
       <Input
         type="password"
         placeholder="Password"
+        data-testid="input-password"
         value={ password }
         onChange={ (e) => setPassword(e.target.value) }
       />
@@ -59,14 +61,27 @@ function Login() {
         <Button
           type="button"
           onClick={ () => userLogin(email, password) }
+          data-testid="button-login"
         >
           Login
         </Button>
         <Link to="create-login">
-          <SecondButton type="button">Create Login</SecondButton>
+          <SecondButton
+            type="button"
+            data-testid="create-login"
+          >
+            Create Login
+
+          </SecondButton>
         </Link>
         <Link to="wall">
-          <SecondButton type="button">Visitor</SecondButton>
+          <SecondButton
+            type="button"
+            data-testid="visitor-link-wall"
+          >
+            Visitor
+
+          </SecondButton>
         </Link>
       </ButtonContainer>
     </LoginContainer>

@@ -35,18 +35,21 @@ function CreateLogin({ history }) {
       <Input
         type="text"
         placeholder="Name"
+        data-testid="input-name"
         value={ name }
         onChange={ (e) => setName(e.target.value) }
       />
       <Input
         type="email"
         placeholder="Email"
+        data-testid="input-email"
         value={ email }
         onChange={ (e) => setEmail(e.target.value) }
       />
       <Input
         type="password"
         placeholder="Password"
+        data-testid="input-password"
         value={ password }
         onChange={ (e) => setPassword(e.target.value) }
       />
@@ -54,6 +57,7 @@ function CreateLogin({ history }) {
         <Button
           type="button"
           onClick={ () => createUser(name, email, password) }
+          data-testid="create-login"
         >
           Create Login
         </Button>
