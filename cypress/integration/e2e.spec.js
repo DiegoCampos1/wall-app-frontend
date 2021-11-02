@@ -15,21 +15,54 @@
 const BUTTON_VISIT_AS_VISITOR = '[data-testid="visitor-link-wall"]';
 const BUTTON_CREATE_LOGIN = '[data-testid="create-login"]';
 
+const INPUT_EMAIL = '[data-testid="input-email"]';
+const INPUT_PASSWORD = '[data-testid="input-password"]';
+const BUTTON_LOGIN = '[data-testid="button-login"]';
+const INPUT_TEXT_POST = '[data-testid="input-text-post"]';
+const BUTTON_SEND_POST = '[data-testid="button-send-post"]';
 
-describe('Page Login', () => {
+const TEXT_POST = 'Hello world!'
+
+const NAME_CY_USER = 'User Cypress'
+const EMAIL_CY_USER = 'testcy@test.com'
+const PASSWORD_CY_USER = 'test123'
+
+describe('e2e tests', () => {
   beforeEach(() => {
     cy.visit('http://localhost:3000')
     cy.clearLocalStorage();
   })
 
-  it('Possible Visit the wall with a visitor', () => {
+  it('can possible visit the wall as visitor?', () => {
     cy.contains('Welcome to THE WALL app!').should('exist')
     cy.get(BUTTON_VISIT_AS_VISITOR).should('exist')
     cy.get(BUTTON_VISIT_AS_VISITOR).click()
     cy.contains('Hello, Visitor !').should('exist')
     cy.get(BUTTON_CREATE_LOGIN).should('exist')
+    cy.get(INPUT_TEXT_POST).should('not.exist')
+    cy.get(BUTTON_SEND_POST).should('not.exist')
   })
 
+  it('can possible visit the wall logged?', () => {
+    cy.get(INPUT_EMAIL).type(EMAIL_CY_USER)
+    cy.get(INPUT_PASSWORD).type(PASSWORD_CY_USER)
+    cy.get(BUTTON_LOGIN).click()
+    cy.contains(`Hello, ${NAME_CY_USER} !`).should('exist')
+    cy.get(INPUT_TEXT_POST).should('exist')
+    cy.get(BUTTON_SEND_POST).should('exist')
+  })
+
+  it('can send a message?', () => {
+    cy.get(INPUT_EMAIL).type(EMAIL_CY_USER)
+    cy.get(INPUT_PASSWORD).type(PASSWORD_CY_USER)
+    cy.get(BUTTON_LOGIN).click()
+    cy.contains(`Hello, ${NAME_CY_USER} !`).should('exist')
+    cy.get(INPUT_TEXT_POST).type(TEXT_POST)
+    cy.get(BUTTON_SEND_POST).click()
+    cy.contains(TEXT_POST).should('exist')
+  })
+
+  
   // it('can add new todo items', () => {
   //   // We'll store our item text in a variable so we can reuse it
   //   const newItem = 'Feed the cat'
