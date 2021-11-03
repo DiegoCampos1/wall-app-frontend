@@ -14,6 +14,9 @@ const GlobalStyle = createGlobalStyle`
     font-size: 2.4em;
     margin-left: -0.5em;
   }
+  h3 {
+    font-size: 2.0em;
+  }
   `;
 
 export default GlobalStyle;

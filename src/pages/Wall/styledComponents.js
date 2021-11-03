@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const WallContainer = styled.div`
-  height: 88vh;
+  height: 80vh;
   width: 80vh;
   display: flex;
   flex-direction: column;

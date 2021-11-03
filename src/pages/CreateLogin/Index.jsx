@@ -30,7 +30,7 @@ function CreateLogin({ history }) {
 
   return (
     <LoginContainer>
-      <h3>Please insert yours information:</h3>
+      <h3>Insert yours information:</h3>
       {createMessage && messageCreateUserInfo()}
       <Input
         type="text"
