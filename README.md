@@ -2,9 +2,9 @@
 
 > Wall App is an application that allows users to register, login, and write on a wall..
 
-Link to back-end project is below:
+Link to backend project is below:
 
-* Backend API NestJS: []()
+* Backend API NestJS: [Backend](https://github.com/DiegoCampos1/wall-app-backend)
 
 For the construction of this app was chosen **[REACT](https://reactjs.org/)** and **[Styled Components](https://styled-components.com/)**.
 
