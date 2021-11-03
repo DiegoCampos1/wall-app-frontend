@@ -27,8 +27,7 @@ It's necessary the back end is running on port 3001.
 * To download the project, follow the instructions below:
 
 ```
-1. git clone
-2. cd
+1. git clone git@github.com:DiegoCampos1/wall-app-frontend.git
 ```
 
 * Install the dependencies and start the project:
