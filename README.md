@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# The Wall
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> Wall App is an application that allows users to register, login, and write on a wall..
 
-## Available Scripts
+Link to back-end project is below:
 
-In the project directory, you can run:
+* Backend API NestJS: []()
 
-### `yarn start`
+For the construction of this app was chosen **[REACT](https://reactjs.org/)** and **[Styled Components](https://styled-components.com/)**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+With **Styled Components** it's possible to use ES6 in CSS. Styled-components has full theming support by exporting a <ThemeProvider> wrapper component. This component provides a theme to all React components underneath itself via the context API. Making it easier to build a Dark Mode like in this project.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+For the tests, e2e was chosen **[CYPRESS](https://www.cypress.io/)**. We'll talk about testing later.
 
-### `yarn test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+These instructions will get you a copy of the full project up and running on your local machine for development and testing purposes.
 
-### `yarn build`
+The project can be built with npm or yarn.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+It's necessary the back end is running on port 3001.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## How to Install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Frontend (React)
 
-### `yarn eject`
+* To download the project, follow the instructions below:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```
+1. git clone
+2. cd
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Install the dependencies and start the project:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+3. yarn install
+4. yarn start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+or
 
-## Learn More
+```
+3. npm install
+4. npm start
+```
+## Tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Choice **Cypress** because Cypress is a next-generation front end testing tool built for the modern web. Cypress enables you to write all types of tests, include end to end.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+End to end: A helper robot that behaves like a user to click around the app and verify that it functions correctly. Sometimes called "functional testing" or e2e. Your test will interact with the app just like a typical user would, it's mean that your test is giving you more confidence.
 
-### Code Splitting
+* To run the test:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+yarn run cypress open 
+```
+or
+```
+npm run cypress open 
+```
+## Keep in Touch
 
-### Analyzing the Bundle Size
+Diego Campos
+* [Diego Campos](mailto:diegodiko05@gmail.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Screen Shots
 
-### Making a Progressive Web App
+* Login:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Login](screenshots/loginLight.png)
 
-### Advanced Configuration
+* Create Login:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![CreateLogin](screenshots/createLoginDark.png)
 
-### Deployment
+* WALL
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![WallLight](screenshots/wallLight.png)
+![WallDark](screenshots/wallDark.png)
 
-### `yarn build` fails to minify
+## Thank you!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks TSL! I really liked to build this App!
